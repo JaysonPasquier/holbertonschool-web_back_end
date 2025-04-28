@@ -2,7 +2,7 @@
 """
 Measure Runtime module
 """
-import asyncio
+from asyncio import gather
 from time import time
 
 async_comprehension = __import__('1-async_comprehension').async_comprehension
@@ -14,7 +14,7 @@ async def measure_runtime() -> float:
     and measures the total runtime.
     """
     start_time = time()
-    await asyncio.gather(
+    await gather(
         async_comprehension(),
         async_comprehension(),
         async_comprehension(),
