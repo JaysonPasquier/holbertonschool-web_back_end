@@ -20,13 +20,18 @@ function countStudents(path) {
           subjects[students[i][3]].push(students[i][0]);
         }
       }
-      delete subjects.subject;
+      // Remove any potential header field
+      delete subjects.field;
+
+      // Ensure we process only valid fields (CS, SWE, etc.)
       for (const key of Object.keys(subjects)) {
-        message = `Number of students in ${key}: ${
-          subjects[key].length
-        }. List: ${subjects[key].join(', ')}`;
-        console.log(message);
-        messages.push(message);
+        if (key && key !== 'undefined') {
+          message = `Number of students in ${key}: ${
+            subjects[key].length
+          }. List: ${subjects[key].join(', ')}`;
+          console.log(message);
+          messages.push(message);
+        }
       }
       res(messages);
     });
