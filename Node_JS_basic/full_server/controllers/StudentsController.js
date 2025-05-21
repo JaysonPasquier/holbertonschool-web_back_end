@@ -17,8 +17,7 @@ class StudentsController {
         const responseLines = ['This is the list of our students'];
 
         // Sort fields alphabetically (case insensitive)
-        const sortedFields = Object.keys(studentsByField).sort((a, b) =>
-          a.localeCompare(b, undefined, { sensitivity: 'base' }));
+        const sortedFields = Object.keys(studentsByField).sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
 
         sortedFields.forEach((field) => {
           const students = studentsByField[field];

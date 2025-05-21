@@ -19,7 +19,7 @@ const readDatabase = (path) => new Promise((resolve, reject) => {
     const studentsByField = {};
 
     students.forEach((student) => {
-      const [firstName, lastName, age, field] = student.split(',');
+      const [firstName, , , field] = student.split(',');
 
       if (!studentsByField[field]) {
         studentsByField[field] = [];
